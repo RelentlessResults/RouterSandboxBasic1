@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ListItem} from '../list-item';
+import {ListItemSummary} from '../list-item-summary';
 
 @Component({
   selector: 'app-list-item',
@@ -8,7 +8,7 @@ import {ListItem} from '../list-item';
 })
 export class ListItemComponent implements OnInit {
 
-  @Input() item: ListItem;
+  @Input() item: ListItemSummary;
   @Input() isExpanded: Boolean;
 
   constructor() { }

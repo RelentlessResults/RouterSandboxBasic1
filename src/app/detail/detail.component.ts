@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(itemId: number) { }
 
   ngOnInit() {
   }
