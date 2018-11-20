@@ -10,10 +10,10 @@ interface IdToListItemMap {
 @Injectable({
   providedIn: 'root'
 })
-export class ItemServiceService {
+export class ItemService {
 
-  listItemSummaries: ListItemSummary[] = [];
-  listItemById: IdToListItemMap = {};
+  private listItemSummaries: ListItemSummary[] = [];
+  private listItemById: IdToListItemMap = {};
 
   constructor() {
     for (let item of LIST_ITEMS) {
@@ -23,10 +23,11 @@ export class ItemServiceService {
   }
 
   getListItemForId(id: number): Observable<ListItem> {
+    console.log('requesting item for id ' + id);
     return of(this.listItemById[id]);
   }
 
-  getList(): Observable<ListItemSummary[]> {
+  getSummaries(): Observable<ListItemSummary[]> {
     return of(this.listItemSummaries);
   }
 

@@ -7,6 +7,8 @@ import { ListItemComponent } from './list-item/list-item.component';
 import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCardModule, MatCheckboxModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,16 @@ import { ChatWindowComponent } from './chat-window/chat-window.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatCardModule,
+  ],
+  exports: [
+    MatButtonModule,
+    MatCheckboxModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

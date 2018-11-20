@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ListItemSummary} from '../list-item-summary';
+import {ItemService} from '../item.service';
 
 @Component({
   selector: 'app-list',
@@ -8,11 +9,12 @@ import {ListItemSummary} from '../list-item-summary';
 })
 export class ListComponent implements OnInit {
 
+  private summaries: ListItemSummary[];
 
-
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
+    this.itemService.getSummaries().subscribe(summaries => this.summaries = summaries);
   }
 
 }

@@ -1,3 +1,5 @@
-<p>
-  
-</p>
+<div *ngIf="item$">
+  <h1>{{item$.id}}: {{ item$.label }}</h1>
+  <p>{{item$.description}}</p>
+  <img src="{{item$.imageUrl}}">
+</div>

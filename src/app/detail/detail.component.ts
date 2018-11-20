@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ItemService} from '../item.service';
+import {ListItem} from '../list-item';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-detail',
@@ -7,9 +12,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor(itemId: number) { }
+  get item$(): Observable<ListItem> {
+    return this._item$;
+  }
+
+  private _item$: Observable<ListItem>;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private itemService: ItemService
+  ) { }
 
   ngOnInit() {
+    const idObs: Observable<number> = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => of( +params.get('id')))
+    );
+    idObs.subscribe(id => {
+      this._item$ = this.itemService.getListItemForId( id );
+    });
   }
 
 }
