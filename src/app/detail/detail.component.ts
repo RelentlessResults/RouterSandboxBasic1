@@ -12,11 +12,8 @@ import {Observable, of} from 'rxjs';
 })
 export class DetailComponent implements OnInit {
 
-  get item$(): Observable<ListItem> {
-    return this._item$;
-  }
+  public item: ListItem;
 
-  private _item$: Observable<ListItem>;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,11 +22,14 @@ export class DetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const idObs: Observable<number> = this.route.paramMap.pipe(
+    const idObservable: Observable<number> = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => of( +params.get('id')))
     );
-    idObs.subscribe(id => {
-      this._item$ = this.itemService.getListItemForId( id );
+    idObservable.subscribe(id => {
+      this.item = null;
+      this.itemService.getListItemForId( id ).subscribe((item) => {
+        this.item = item;
+      });
     });
   }
 

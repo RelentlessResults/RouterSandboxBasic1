@@ -1,5 +1,11 @@
-<div *ngIf="item$">
-  <h1>{{item$.id}}: {{ item$.label }}</h1>
-  <p>{{item$.description}}</p>
-  <img src="{{item$.imageUrl}}">
+<div *ngIf="item else loading">
+  <h1>{{item.id}}: {{item.label}}</h1>
+  <button *ngIf="item.id > 0" [routerLink]="['/detail', item.id-1]">Previous</button>
+  <button [routerLink]="['/detail', item.id+1]">Next</button>
+  <p>{{item.description}}</p>
+  <img src="{{item.imageUrl}}">
 </div>
+<ng-template #loading>
+  <label>loading...</label>
+  <mat-spinner></mat-spinner>
+</ng-template>

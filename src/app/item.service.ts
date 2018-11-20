@@ -23,8 +23,12 @@ export class ItemService {
   }
 
   getListItemForId(id: number): Observable<ListItem> {
-    console.log('requesting item for id ' + id);
-    return of(this.listItemById[id]);
+    return new Observable((observer) => {
+      setTimeout(() => {
+        observer.next(this.listItemById[id]);
+        observer.complete();
+      }, 1000);
+    });
   }
 
   getSummaries(): Observable<ListItemSummary[]> {

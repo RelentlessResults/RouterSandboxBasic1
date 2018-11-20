@@ -8,7 +8,7 @@ import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatCheckboxModule, MatProgressSpinnerModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -25,11 +25,13 @@ import {MatButtonModule, MatCardModule, MatCheckboxModule} from '@angular/materi
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
