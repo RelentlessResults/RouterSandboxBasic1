@@ -7,5 +7,7 @@ import {ListComponent} from './list/list.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'basic1';
+
+  showHistory: boolean;
+
 }

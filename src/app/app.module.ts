@@ -7,8 +7,18 @@ import { ListItemComponent } from './list-item/list-item.component';
 import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule, MatCheckboxModule, MatProgressSpinnerModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDrawer,
+  MatListModule,
+  MatProgressSpinnerModule,
+  MatSidenavModule, MatToolbarModule
+} from '@angular/material';
+import { NavigationHistoryComponent } from './navigation-history/navigation-history.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +26,9 @@ import {MatButtonModule, MatCardModule, MatCheckboxModule, MatProgressSpinnerMod
     ListItemComponent,
     ListComponent,
     DetailComponent,
-    ChatWindowComponent
+    ChatWindowComponent,
+    NavigationHistoryComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -25,13 +37,18 @@ import {MatButtonModule, MatCardModule, MatCheckboxModule, MatProgressSpinnerMod
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatListModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   exports: [
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

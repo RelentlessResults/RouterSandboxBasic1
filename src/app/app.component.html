@@ -1,8 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="page-header">
   <h1>Router sandbox</h1>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <button (click)="sidenav.toggle()">History</button>
+      <button routerLink="/list">List</button>
+      <button routerLink="/detail">Details</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
 </div>
 
-
-
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <app-navigation-history></app-navigation-history>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
