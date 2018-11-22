@@ -27,7 +27,7 @@ interface DisplayItemMap {
 })
 export class ListComponent implements OnInit {
 
-  private displayItemMap: Map<number, ListItemIsExpanded> = new Map<number, ListItemIsExpanded>();
+  private displayItemMap: Map<number, ListItemIsExpanded>;
   private orderedIds: number[] = [];
 
   constructor(
@@ -37,6 +37,7 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.displayItemMap = new Map<number, ListItemIsExpanded>();
     this.itemService.getSummaries().subscribe(summaries => {
       this.orderedIds = [];
       for (const summaryData of summaries) {
@@ -47,15 +48,20 @@ export class ListComponent implements OnInit {
     const expandedObservable: Observable<string> = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => of( params.get('expandedItems')))
     );
-    expandedObservable.subscribe( expandedIdsString => {
-      const expandedIds = JSON.parse(expandedIdsString);
-      if ((expandedIds as Array<number>) == null) {
-        return;
-      }
-      for (const idString of <Array<number>>expandedIds) {
-        this.displayItemMap.get(idString).isExpanded = true;
-      }
-    } );
+    expandedObservable.subscribe( (expandedIdsString => this.handleParamExpandedIds(expandedIdsString) );
+  }
+
+  private handleParamExpandedIds(expandedIdsString) {
+    this.displayItemMap.forEach((itemIsExpanded: ListItemIsExpanded, key: number) => {
+      itemIsExpanded.isExpanded = false;
+    });
+    const expandedIds = JSON.parse(expandedIdsString);
+    if ((expandedIds as Array<number>) == null) {
+      return;
+    }
+    for (const idString of <Array<number>>expandedIds) {
+      this.displayItemMap.get(idString).isExpanded = true;
+    }
   }
 
   handleIdExpanded(idExpanded: IdIsExpanded) {

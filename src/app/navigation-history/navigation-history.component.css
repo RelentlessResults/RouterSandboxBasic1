@@ -1,0 +1,10 @@
+.navHistoryContainer {
+  color: gray;
+  font-size: x-small;
+  width: 400px;
+}
+
+.timestamp {
+  font-size: x-small;
+  padding-left: 20px;
+}

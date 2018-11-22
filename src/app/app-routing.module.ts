@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {ListComponent} from './list/list.component';
 import {DetailComponent} from './detail/detail.component';
 import {NotFoundComponent} from './not-found/not-found.component';
+import {ChatWindowComponent} from './chat-window/chat-window.component';
 
 const routes: Routes = [
   {
@@ -27,8 +28,9 @@ const routes: Routes = [
     component: NotFoundComponent
   },
   {
-    path: '**',
-    redirectTo: '404'
+    path: 'chat',
+    component: ChatWindowComponent,
+    outlet: 'popup'
   }
 ];
 
@@ -36,4 +38,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

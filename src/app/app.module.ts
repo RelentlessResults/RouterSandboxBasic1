@@ -9,6 +9,7 @@ import { DetailComponent } from './detail/detail.component';
 import { ChatWindowComponent } from './chat-window/chat-window.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
+  MatBottomSheetModule,
   MatButtonModule,
   MatCardModule,
   MatCheckboxModule,
@@ -40,7 +41,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatProgressSpinnerModule,
     MatListModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatBottomSheetModule
   ],
   exports: [
     MatButtonModule,
@@ -48,7 +50,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatCardModule,
     MatProgressSpinnerModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatBottomSheetModule
   ],
   providers: [],
   bootstrap: [AppComponent]

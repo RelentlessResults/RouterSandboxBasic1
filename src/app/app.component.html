@@ -3,19 +3,22 @@
   <h1>Router sandbox</h1>
   <mat-toolbar>
     <mat-toolbar-row>
-      <button (click)="sidenav.toggle()">History</button>
-      <button routerLink="/list">List</button>
-      <button routerLink="/detail">Details</button>
+      <button [routerLink]="[]" [queryParams]="{showHistory: !sideNav.opened}" queryParamsHandling="merge">History</button>
+      <button [routerLink]="['list']" queryParamsHandling="preserve">List</button>
+      <button [routerLink]="['detail']" queryParamsHandling="preserve">Details</button>
+      <button [routerLink]="[{outlets: {popup: ['chat']}}]" queryParamsHandling="merge">Open Chat</button>
     </mat-toolbar-row>
   </mat-toolbar>
 
 </div>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav>
+  <mat-sidenav mode="over" #sidenav>
     <app-navigation-history></app-navigation-history>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
+    <router-outlet name="popup"></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+

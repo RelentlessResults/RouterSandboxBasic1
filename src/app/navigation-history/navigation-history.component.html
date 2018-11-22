@@ -1,7 +1,7 @@
 
-<label>Navigation History</label>
-<mat-list>
+<h2>Navigation History</h2>
+<mat-list class="navHistoryContainer">
   <mat-list-item *ngFor="let item of list">
-    <a routerLink="{{item.url}}">{{item.event.url}} - {{item.timestamp}}</a>
+    <a (click)="router.navigateByUrl(item.event.url)">{{item.event.url}}</a> <span class="timestamp">{{item.timestamp}}</span>
   </mat-list-item>
 </mat-list>
