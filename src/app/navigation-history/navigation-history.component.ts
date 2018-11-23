@@ -25,7 +25,7 @@ export class NavigationHistoryComponent implements OnInit, OnDestroy {
     this.router.events.subscribe(event => {
       // https://angular.io/guide/router#router-events
       if ( event instanceof NavigationEnd ) {
-        this.list.unshift(new Row(event as NavigationEnd, moment().toISOString()));
+        this.list.unshift(new Row(event as NavigationEnd, moment().format("HH:mm:ss")));
       }
     });
   }
