@@ -1,4 +1,11 @@
-.mat-card {
+.mat-card-wrapper {
   margin: 40px 10px 10px 10px;
-  max-width: 500px;
+}
+
+.mat-card {
+  width: 300px;
+}
+
+.list-item-title {
+  cursor: pointer;
 }

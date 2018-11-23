@@ -1,5 +1,6 @@
-<div *ngFor="let id of orderedIds">
-  <app-list-item [item]="displayItemMap.get(id).summary"
+<div class="list-container">
+  <app-list-item *ngFor="let id of orderedIds"
+                 [item]="displayItemMap.get(id).summary"
                  (expandedChange)="handleIdExpanded($event)"
                  [isExpanded]="displayItemMap.get(id).isExpanded">
   </app-list-item>

@@ -48,7 +48,7 @@ export class ListComponent implements OnInit {
     const expandedObservable: Observable<string> = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => of( params.get('expandedItems')))
     );
-    expandedObservable.subscribe( (expandedIdsString => this.handleParamExpandedIds(expandedIdsString) );
+    expandedObservable.subscribe( (expandedIdsString) => this.handleParamExpandedIds(expandedIdsString) );
   }
 
   private handleParamExpandedIds(expandedIdsString) {

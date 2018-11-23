@@ -16,8 +16,8 @@ export class ItemService {
   private listItemById: IdToListItemMap = {};
 
   constructor() {
-    for (let item of LIST_ITEMS) {
-      this.listItemSummaries.push(new ListItemSummary(item.id, item.label));
+    for (const item of LIST_ITEMS) {
+      this.listItemSummaries.push(new ListItemSummary(item.id, item.label, item.imageUrl));
       this.listItemById[item.id] = item;
     }
   }
